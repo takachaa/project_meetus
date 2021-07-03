@@ -1,0 +1,126 @@
+
+* {
+	
+	font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", "YuGothic", "Noto Sans JP", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo,'Hiragino Kaku Gothic Pro',Osaka, "ＭＳ Ｐゴシック", "MS PGothic",sans-serif;
+	margin: 0;
+	padding: 0;
+	color: #2f2e32;
+}
+
+html{
+	font-size: 62.5%;
+}
+
+img{
+	max-width: 100%;
+	height: auto;
+}
+
+ul{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+}
+
+a:hover{
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="checkbox"],
+input[type="submit"],
+textarea,
+select,
+button,
+button:hover {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border:none;
+	font-size:16px;
+	height:40px;
+	line-height:40px;
+	box-sizing:border-box;
+	padding:0 1em;
+	border-radius:1.5em;
+	width:100%;
+	box-shadow: none;
+	outline:0;
+	background:#e9eef3;
+	display:block;
+}
+select::-ms-expand{
+    display: none;
+}
+::placeholder {
+  color: #cccccc;
+  font-weight:100;
+}
+::-ms-input-placeholder {
+  color: #cccccc;
+}
+:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	display:none;
+}
+input[type="checkbox"] + span {
+	display:block;
+	font-size:1.2rem;
+	height:36px;
+	line-height:36px;
+	text-align:center;
+	box-sizing:border-box;
+    border:1px solid #41c1eb;
+    color:#41c1eb;
+    border-radius:18px;
+}
+input[type="radio"] + span {
+	display:block;
+	font-size:1.2rem;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	box-sizing:border-box;
+    border:1px solid #41c1eb;
+    color:#41c1eb;
+    border-radius:20px;
+}
+input[type="checkbox"]:checked + span {
+    background-color:#41c1eb;;
+    color:#ffffff;
+}
+input[type="radio"]:checked + span {
+    background-color:#41c1eb;;
+    color:#ffffff;
+}
+select {
+	background-image:url(../../img/icon_arrow_down.svg);
+	background-repeat:no-repeat;
+	background-position:right 15px center;
+	background-size:auto 5px;
+}
+
+
+p,li,dl,a {
+	font-size: 1.6rem;
+	line-height: 1.8;
+	font-weight: 300;
+}
+
+	p,li,dl,a {
+		font-size: 1.4rem;
+		line-height: 1.6;
+	}
+
+
+body.is-active {
+	overflow: hidden;
+}

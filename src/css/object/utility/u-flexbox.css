@@ -1,0 +1,84 @@
+/*基本：左右配置　上下センター　折り返しなし*/
+.u-fbox {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+	width:100%;
+}
+/*折り返しなし*/
+.u-fbox--nowrap {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+/*左寄せ*/
+.u-fbox--bxstart {
+  -webkit-box-pack: start;
+     -ms-flex-pack: start;
+   justify-content: flex-start;
+}
+/*右寄せ*/
+.u-fbox--bxend {
+  -webkit-box-pack: end;
+     -ms-flex-pack: end;
+   justify-content: flex-end;
+}
+/*中央寄せ*/
+.u-fbox--bxcenter {
+  -webkit-box-pack: center;
+     -ms-flex-pack: center;
+   justify-content: center;
+}
+/*上寄せ*/
+.u-fbox--alstart {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+/*下寄せ*/
+.u-fbox--alend {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    align-content: flex-end;
+}
+/*上下中央*/
+.u-fbox--alcenter {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    align-content: center;
+}
+/*上下端*/
+.u-fbox--albt {
+  -ms-flex-line-pack: justify;
+       align-content: space-between;
+}
+/*上下均等*/
+.u-fbox--linedist {
+  -ms-flex-line-pack: distribute;
+       align-content: space-around;
+}
+/*子要素に設定　順番を1番目に*/
+.u-fbox--pos0 {
+  -webkit-box-ordinal-group: 1;
+             -ms-flex-order: -1;
+                      order: -1;
+}
+.u-fbox--wauto {
+	width: auto;
+}

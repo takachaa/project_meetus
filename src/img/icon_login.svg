@@ -1,0 +1,21 @@
+<svg id="icon_login.svg" xmlns="http://www.w3.org/2000/svg" width="69" height="86.469" viewBox="0 0 69 86.469">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #8c939b;
+      }
+
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        font-size: 18px;
+        font-family: "Noto Sans CJK JP";
+        font-weight: 500;
+      }
+    </style>
+  </defs>
+  <path id="lcon_login" class="cls-1" d="M1042.61,44.521H995.238a1.879,1.879,0,0,0-1.881,1.88v5.642h3.761V48.283h43.612v52.656H997.118V97.177h-3.761v5.641a1.88,1.88,0,0,0,1.881,1.881h47.372a1.879,1.879,0,0,0,1.88-1.881V46.4a1.879,1.879,0,0,0-1.88-1.88h0Zm0,0-38.2,40.042,2.66,2.659,12.61-12.613L1007.07,62l-2.66,2.659,8.08,8.073H985.835v3.761h26.655Zm0,0" transform="translate(-981 -44.531)"/>
+  <text id="ログイン" class="cls-2" x="-2" y="84.469">ログイン</text>
+</svg>

@@ -1,0 +1,37 @@
+.p-footer {
+	position: fixed;
+	width: 100%;
+	bottom:0;
+	left:0;
+	z-index: 99;
+	background: #FFFFFF;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 5px 10px;
+	box-shadow:0 -2px 3px rgba(0,0,0,.1);
+}
+.p-footer__menu.u-fbox {
+	margin:0 auto;
+}
+.p-footer__menu__icon {
+	width: 45px;
+	height: 45px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size:100% auto;
+}
+.p-footer__menu__icon--search {
+	background-image: url("../../../img/icon_f1.png");
+}
+.p-footer__menu__icon--good {
+	background-image: url("../../../img/icon_f2.png");
+}
+.p-footer__menu__icon--star {
+	background-image: url("../../../img/icon_f3.png");
+}
+.p-footer__menu__icon--message {
+	background-image: url("../../../img/icon_f4.png");
+}
+.p-footer__menu__icon--other {
+	background-image: url("../../../img/icon_f5.png");
+}

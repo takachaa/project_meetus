@@ -1,0 +1,17 @@
+.l-main {
+	padding-bottom: 45px;
+	box-sizing:border-box;
+}
+.l-main__sectoin {
+	width: 100%;
+	text-align: center;
+}
+.l-main__contents {
+	width: 100%;
+	text-align: left;
+	box-sizing: border-box;
+	padding: 0 15px 15px;
+}
+.l-main__contents.l-main__contents--full {
+	padding: 0 0 15px;
+}

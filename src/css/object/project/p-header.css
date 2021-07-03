@@ -1,0 +1,122 @@
+/**headerレイアウト**/
+
+.p-header{
+	box-sizing:border-box;
+	padding:10px;
+	text-align:center;
+	position:relative;
+	background-color:#FFFFFF;
+}
+.p-header__logo {
+	width:40%;
+	max-width:120px;
+	margin:0 auto;
+}
+.p-header__logo.p-header__logo--login {
+	margin-right:30px;
+}
+.p-header__logo__img {
+	display: block;
+}
+.p-header__login {
+    position:absolute;
+    top:14px;
+    right:10px;
+    z-index:1;
+    width:28px;
+}
+.p-header__login.p-header__login--login {
+	display: none;
+}
+.p-header__login__icon {
+    display:block;
+}
+.p-header__menu {
+	display: none;
+}
+.p-header__menu.p-header__menu--login {
+	display: inherit;
+	position:relative;
+	width: 30px;
+	height: 30px;
+}
+.p-header__menu.p-header__menu--login::before {
+	content:'';
+	display: block;
+	background: #8c939b;
+	width: 100%;
+	height: 3px;
+	position: absolute;
+	border-radius: 1.5px;
+	left:0;
+	top:10%;
+}
+.p-header__menu.p-header__menu--login::after {
+	content:'';
+	display: block;
+	background: #8c939b;
+	width: 100%;
+	height: 3px;
+	position: absolute;
+	border-radius: 1.5px;
+	left:0;
+	bottom:10%;
+}
+.p-header__menu.p-header__menu--login span::before {
+	content:'';
+	display: block;
+	background: #8c939b;
+	width: 100%;
+	height: 3px;
+	position: absolute;
+	border-radius: 1.5px;
+	left:0;
+	top:calc(50% - 1.5px);
+}
+
+.p-header__loginbox {
+}
+.p-header__loginbox.u-fbox {
+	width: 105px;
+}
+.p-header__loginbox__icon {
+	width: 26px;
+	height: 26px;
+	position: relative;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size:75% auto;
+}
+.p-header__loginbox__icon--good {
+	background-image:url(../../../img/icon_good-h.svg);
+}
+.p-header__loginbox__icon--star {
+	background-image:url(../../../img/icon_star-h.svg);
+}
+.p-header__loginbox__icon--notice {
+	background-image:url(../../../img/icon_bell2.svg);
+}
+.p-header__loginbox__icon__num {
+	position:absolute;
+	top:0;
+	right:0;
+	font-size:1.1rem;
+	line-height:1.2;
+	width:1.2em;
+	display:block;
+	border-radius:50%;
+	color:#FFFFFF;
+	background-color:#ff6666;
+}
+.p-header__loginbox__icon--topics {
+	background-image:url(../../../img/icon_topics.svg);
+}
+
+
+@media screen and (max-width:1100px){
+	
+}
+
+@media screen and (max-width:640px){
+
+}
