@@ -12,6 +12,7 @@
     "core-js": "^3.6.5",
     "jquery": "^3.6.0",
     "register-service-worker": "^1.7.2",
+    "socket.io-client": "^4.1.2",
     "swiper": "5.x",
     "vue": "^2.6.11",
     "vue-agile": "^1.1.3",

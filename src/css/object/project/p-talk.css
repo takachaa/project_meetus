@@ -35,12 +35,16 @@
 	
 }
 
-
+.p-talk--user {
+	display:block;
+}
 .p-talk--user .p-talk__user {
 	box-sizing:border-box;
 	padding-right:0;
 	padding-left:30px;
-	margin-bottom:15px;
+	padding-top:10px;
+	padding-bottom:10px;
+	margin:0;
 	position:relative;
 	background:url(../../../img/icon_angle_l.svg) no-repeat left center;
 	background-size:auto 30%;
@@ -48,7 +52,7 @@
 .p-talk--user .p-talk__user::after {
 	content:none;
 }
-.p-talk__user__profile {
+.p-talk--user .p-talk__user__profile {
 	width:calc(100% - 60px);
 	margin-right:0;
 }
@@ -58,6 +62,9 @@
 	padding:30px 15px;
 	background:#f5f5f5;
 	border-radius:6px;
+    overflow: scroll;
+	min-height: calc(100vh - 56px - 65px - 70px - 59px);
+	max-height: calc(100vh - 56px - 65px - 70px - 59px);
 }
 .p-talk__comment {
 	margin-bottom:15px;

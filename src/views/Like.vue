@@ -10,14 +10,15 @@
 					<!--section-->
 					<div class="l-main__section">
 						<!--contents-->
-						<div class="l-main__contents">
-							
-							<!-- <a href="top_login.html" class="p-offertitle p-offertitle--good">足あと</a> -->
-							<router-link :to="{ name: 'Menu' }" class="p-offertitle p-offertitle--good">いいね !</router-link>
-							
-							<div class="p-offer__toggle u-fbox">
-								<a class="p-offer__toggle__btn" v-bind:class="{ 'is-active': currentComponent === 'LikeFrom'}" @click="changeLikeStatus('LikeFrom')">企業からいいね</a>
-								<a class="p-offer__toggle__btn" v-bind:class="{ 'is-active': currentComponent === 'LikeTo'}" @click="changeLikeStatus('LikeTo')">あなたからいいね</a>
+						<div class="l-main__contents u-padding--top120">
+							<div class="u-fixed u-fixed--title">
+								<!-- <a href="top_login.html" class="p-offertitle p-offertitle--good">足あと</a> -->
+								<router-link :to="{ name: 'Menu' }" class="p-offertitle p-offertitle--good">いいね !</router-link>
+								
+								<div class="p-offer__toggle u-fbox">
+									<a class="p-offer__toggle__btn" v-bind:class="{ 'is-active': currentComponent === 'LikeFrom'}" @click="changeLikeStatus('LikeFrom')">企業からいいね</a>
+									<a class="p-offer__toggle__btn" v-bind:class="{ 'is-active': currentComponent === 'LikeTo'}" @click="changeLikeStatus('LikeTo')">あなたからいいね</a>
+								</div>
 							</div>
 							
 							<transition name="slide" mode="out-in" appear>

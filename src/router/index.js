@@ -20,6 +20,8 @@ import Footprints from '../views/Footprints.vue'
 import Like from '../views/Like.vue'
 import Favorite from '../views/Favorite.vue'
 import History from '../views/History.vue'
+import Profile from '../views/Profile.vue'
+import NotFound from '../views/NotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -77,14 +79,7 @@ const routes = [
   {
     path: '/top3',
     name: 'Top3',
-    component: Top3,
-    beforeEnter(to, from , next){
-      if(store.getters.idToken){
-        next();
-      }else{
-        next('/login')
-      } 
-    }
+    component: Top3
   }, 
   {
     path: '/detail2',
@@ -206,6 +201,25 @@ const routes = [
       } 
     }
   },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile,
+    beforeEnter(to, from , next){
+      if(store.getters.idToken){
+        next();
+      }else{
+        next('/login')
+      } 
+    }
+  },
+  //以下上記どれにもあてまらないページリクエストはNotFoundページに飛ばす
+  {
+    path: '*',
+    name: 'NotFound',
+    component: NotFound
+  }
+  //ここまで
 
 ]
 

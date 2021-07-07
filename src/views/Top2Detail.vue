@@ -62,21 +62,36 @@
 										<li class="p-offer__detail__details__list__item">新しいことが好き</li>
 										<li class="p-offer__detail__details__list__item">突発残業OK</li>
 									</ul>
-									<p class="p-offer__detail__details__company">会社名：株式会社エムディーシー</p>
-									<p class="p-offer__detail__details__company">URL：<a href="https://aaa.cp.jp" target="_blank" rel="noopener"></a>https://aaa.cp.jp</p>
-									<p class="p-offer__detail__details__company">住所：〒800-0321 福岡県京都郡苅田町新浜町1-34</p>
-									<p class="p-offer__detail__details__company">電話番号：000-0000-0000</p>
-									<p class="p-offer__detail__details__company">地図（GoogleMap）
-										<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.811430190144!2d130.98374551563583!3d33.76553839023065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3543ea24d48e7cef%3A0x1e629c98f103d16f!2z5qCq5byP5Lya56S-44OY44OD44K6IOacrOekvuW3peWgtA!5e0!3m2!1sja!2sjp!4v1624452980941!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>
-									<div class="p-offer__detail__details__company">採用担当者より
-										<div class="p-offer__detail__details__company__agent u-fbox u-fbox--alstart">
+									<div class="p-offer__detail__details__company">
+										<p class="p-offer__detail__details__company__item">会社名：株式会社エムディーシー</p>
+										<p class="p-offer__detail__details__company__item">URL：<a href="https://aaa.cp.jp" target="_blank" rel="noopener"></a>https://aaa.cp.jp</p>
+										<p class="p-offer__detail__details__company__item">住所：〒800-0321 福岡県京都郡苅田町新浜町1-34</p>
+										<p class="p-offer__detail__details__company__item">電話番号：000-0000-0000</p>
+										<p class="p-offer__detail__details__company__item">地図（GoogleMap）
+											<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.811430190144!2d130.98374551563583!3d33.76553839023065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3543ea24d48e7cef%3A0x1e629c98f103d16f!2z5qCq5byP5Lya56S-44OY44OD44K6IOacrOekvuW3peWgtA!5e0!3m2!1sja!2sjp!4v1624452980941!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>
+										<div class="p-offer__detail__details__company__agent u-fbox u-fbox--alcenter">
 											<img src="../img/user.jpg" alt="" class="p-offer__detail__details__company__agent__img">
 											<dl class="p-offer__detail__details__company__agent__detail">
+												<dd class="p-offer__detail__details__company__agent__detail__desc">採用担当者</dd>
 												<dt class="p-offer__detail__details__company__agent__detail__name">山田 太郎</dt>
-												<dd class="p-offer__detail__details__company__agent__detail__message">一緒に働ける仲間を募集しています。皆様の応募をお待ちしております。</dd>
 											</dl>											
 										</div>
-									</div>
+									</div>										
+									<h2 class="p-offer__detail__details__title p-offer__detail__details__title--agent">自己紹介</h2>
+									<p class="p-offer__detail__details__item">テキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミー</p>
+									<h2 class="p-offer__detail__details__title">こんな性格です！</h2>
+									<ul class="p-offer__detail__details__list u-fbox u-fbox--alstart u-fbox--bxstart">
+										<li class="p-offer__detail__details__list__item">穏やか</li>
+										<li class="p-offer__detail__details__list__item">誰とでも打ち解ける</li>
+										<li class="p-offer__detail__details__list__item">人の話を聞く</li>
+									</ul>
+									<h2 class="p-offer__detail__details__title">休日の過ごし方♪</h2>
+									<ul class="p-offer__detail__details__list u-fbox u-fbox--alstart u-fbox--bxstart">
+										<li class="p-offer__detail__details__list__item">NETFLIX</li>
+										<li class="p-offer__detail__details__list__item">ドライブ</li>
+										<li class="p-offer__detail__details__list__item">音楽鑑賞</li>
+										<li class="p-offer__detail__details__list__item">お笑い番組</li>
+									</ul>
 								</div>
 							</div>
 							<!--/job-->

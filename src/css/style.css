@@ -3,9 +3,8 @@
 @import "foundation/base.css";
 @import "layout/l-header.css";
 @import "layout/l-main.css";
-@import "layout/sidebar.css";
-@import "layout/footer.css";
-@import "object/component/breadcrumb.css";
+@import "layout/l-sidebar.css";
+@import "layout/l-footer.css";
 @import "object/component/c-btn.css";
 @import "object/component/component.css";
 @import "object/project/p-header.css";
@@ -14,7 +13,6 @@
 @import "object/project/p-footer.css";
 @import "object/project/p-menu.css";
 @import "object/project/p-talk.css";
-/* @import "object/project/content.css"; */
+@import "object/project/p-profile.css";
 @import "object/utility/u-layout.css";
-@import "object/utility/padding.css";
 @import "object/utility/u-flexbox.css";

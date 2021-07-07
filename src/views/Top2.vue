@@ -53,6 +53,7 @@
 										<dd class="p-offer__detail__company__url"><a href="" class="p-offer__detail__company__url__text">https://www.xxx.com</a></dd>
 										<dd class="p-offer__detail__company__place u-fbox u-fbox--alcenter u-fbox--wauto">福岡県北九州市</dd>
 									</dl>
+									<div class="p-offer__detail__arrow--down"></div>
 									<div class="p-offer__detail__details">
 										<p class="p-offer__detail__details__item">得意先様からの電話・FAXの注文に対するパソコンでの受注処理が主な業務です。<br>その他医薬品メーカーへの商品の発注や、在庫管理などの事務関連業務全般を行っていただきます。</p>
 										<p class="p-offer__detail__details__item">会社名：SHINRAI GROUP<br>
@@ -90,6 +91,7 @@
 										<dd class="p-offer__detail__company__url"><a href="" class="p-offer__detail__company__url__text">https://www.xxx.com</a></dd>
 										<dd class="p-offer__detail__company__place u-fbox u-fbox--alcenter u-fbox--wauto">福岡県北九州市</dd>
 									</dl>
+									<div class="p-offer__detail__arrow--down"></div>
 									<div class="p-offer__detail__details">
 										<p class="p-offer__detail__details__item">得意先様からの電話・FAXの注文に対するパソコンでの受注処理が主な業務です。<br>その他医薬品メーカーへの商品の発注や、在庫管理などの事務関連業務全般を行っていただきます。</p>
 										<p class="p-offer__detail__details__item">会社名：SHINRAI GROUP<br>
@@ -128,6 +130,7 @@
 										<dd class="p-offer__detail__company__url"><a href="" class="p-offer__detail__company__url__text">https://www.xxx.com</a></dd>
 										<dd class="p-offer__detail__company__place u-fbox u-fbox--alcenter u-fbox--wauto">福岡県北九州市</dd>
 									</dl>
+									<div class="p-offer__detail__arrow--down"></div>
 									<div class="p-offer__detail__details">
 										<p class="p-offer__detail__details__item">得意先様からの電話・FAXの注文に対するパソコンでの受注処理が主な業務です。<br>その他医薬品メーカーへの商品の発注や、在庫管理などの事務関連業務全般を行っていただきます。</p>
 										<p class="p-offer__detail__details__item">会社名：SHINRAI GROUP<br>
@@ -166,6 +169,7 @@
 										<dd class="p-offer__detail__company__url"><a href="" class="p-offer__detail__company__url__text">https://www.xxx.com</a></dd>
 										<dd class="p-offer__detail__company__place u-fbox u-fbox--alcenter u-fbox--wauto">福岡県北九州市</dd>
 									</dl>
+									<div class="p-offer__detail__arrow--down"></div>
 									<div class="p-offer__detail__details">
 										<p class="p-offer__detail__details__item">得意先様からの電話・FAXの注文に対するパソコンでの受注処理が主な業務です。<br>その他医薬品メーカーへの商品の発注や、在庫管理などの事務関連業務全般を行っていただきます。</p>
 										<p class="p-offer__detail__details__item">会社名：SHINRAI GROUP<br>
@@ -359,11 +363,14 @@ export default {
 		$('.p-form__jobsearch__title + .p-form__jobsearch__item').removeAttr('style');
 	});
 
-	$('.p-offer__detail__company').on('click',function() {
+	$('.p-offer__detail__arrow--down').on('click',function() {
 		$(this).next('.p-offer__detail__details').slideToggle(300);
+		$(this).toggleClass('is-active');
 	});
+	
 	$('.p-offer__detail .c-btn__modalclose').on('click',function() {
 		$(this).parents('.p-offer__detail').find('.p-offer__detail__details').slideToggle(300);
+		$(this).parents('.p-offer__detail').find('.p-offer__detail__arrow--down').toggleClass('is-active');
 	});
 	
 	$('.p-form__jobsearch__title').on('click',function() {

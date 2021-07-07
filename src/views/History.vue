@@ -10,10 +10,12 @@
 					<!--section-->
 					<div class="l-main__section">
 						<!--contents-->
-						<div class="l-main__contents">
+						<div class="l-main__contents u-padding--top60">
 
-							<!-- <a href="top_login.html" class="p-offertitle p-offertitle--good">足あと</a> -->
-							<router-link :to="{ name: 'Menu' }" class="p-offertitle p-offertitle--good">閲覧履歴</router-link>
+							<div class="u-fixed u-fixed--title">
+								<!-- <a href="top_login.html" class="p-offertitle p-offertitle--good">足あと</a> -->
+								<router-link :to="{ name: 'Menu' }" class="p-offertitle p-offertitle--good">閲覧履歴</router-link>
+							</div>
 							
 							<!--job-->
 							<div class="p-offer">

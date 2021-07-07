@@ -29,44 +29,17 @@
 							</form>
 							
 							<div class="p-talk p-talk--list">
-                <router-link :to="{ name: 'MessageDetail', params: { value: 1 }}">
-                  <div class="p-talk__user u-fbox u-fbox--alcenter is-active">
-                    <div class="p-talk__user__img"><img src="../img/user.jpg" alt=""></div>
-                    <dl class="p-talk__user__profile">
-                      <dt class="p-talk__user__profile__name">求職者太郎</dt>
-                      <dd class="p-talk__user__profile__message">メッセージはありません。</dd>
-                    </dl>
-                  </div>
-                </router-link>
-                <router-link :to="{ name: 'MessageDetail', params: { value: 2 }}">
-                  <div class="p-talk__user u-fbox u-fbox--alcenter">
-                    <div class="p-talk__user__img"><img src="../img/user.jpg" alt=""></div>
-                    <dl class="p-talk__user__profile">
-                      <dt class="p-talk__user__profile__name">株式会社AAAAA</dt>
-                      <dd class="p-talk__user__profile__message">メッセージはありません。</dd>
-                    </dl>
-                  </div>
-                </router-link>
-                <router-link :to="{ name: 'MessageDetail', params: { value: 3 }}">
-                  <div class="p-talk__user u-fbox u-fbox--alcenter is-active">
-                    <div class="p-talk__user__img"><img src="../img/user.jpg" alt=""></div>
-                    <dl class="p-talk__user__profile">
-                      <dt class="p-talk__user__profile__name">求職者太郎</dt>
-                      <dd class="p-talk__user__profile__message">メッセージはありません。</dd>
-                    </dl>
-                  </div>
-                </router-link>
-                <router-link :to="{ name: 'MessageDetail', params: { value: 3 }}">
-								<div class="p-talk__user u-fbox u-fbox--alcenter" @click="moveDetail(4)">
-									<div class="p-talk__user__img"><img src="../img/user.jpg" alt=""></div>
-									<dl class="p-talk__user__profile">
-										<dt class="p-talk__user__profile__name">株式会社AAAAA</dt>
-										<dd class="p-talk__user__profile__message">メッセージはありません。</dd>
-									</dl>
-								</div>
-                </router-link>
+								<router-link v-for="room in getMatchesList" :key="room.id" :to="{ name: 'MessageDetail', params: { roomId : `${room.roomId}` , fromId : `${room.fromId}` ,toId : `${room.toId}`}}">
+									<div class="p-talk__user u-fbox u-fbox--alcenter is-active">
+										<div class="p-talk__user__img"><img src="../img/user.jpg" alt=""></div>
+										<dl class="p-talk__user__profile">
+										<dt class="p-talk__user__profile__name">{{room.fromId}} => {{room.toId}} ROOM: {{room.roomId}}</dt>
+										<dd class="p-talk__user__profile__message">{{ room.read_flg == 1 ? "新着メッセージはありません。":"新着メッセージがあります。" }}</dd>
+										</dl>
+									</div>
+								</router-link>
 							</div>
-							
+				
 						</div>
 						<!--/contents-->
 					</div>
@@ -85,13 +58,13 @@
 
 export default {
   name: 'Message',
+  computed:{
+	getMatchesList(){
+		return this.$store.getters.matchesList
+	}
+  },
   mounted(){
     this.$emit('click', {'isHeaderActive':true,'isFooterActive':true}) 
-  },
-  methods:{
-    moveDetail(messageId){
-      this.$router.push({ name: 'MessageDetail', params: { messageId: messageId } })    
-    }
   }
 }
 </script>

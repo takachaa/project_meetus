@@ -33,7 +33,8 @@
 							<!--menu-->
 							<div class="p-menu">
 								<div class="p-menu__menus u-fbox u-fbox--bxstart">
-									<a href="" class="p-menu__menus__icon p-menu__menus__icon--profile"></a>
+									<!-- <a href="" class="p-menu__menus__icon p-menu__menus__icon--profile"></a> -->
+									<router-link :to="{ name: 'Profile' }" class="p-menu__menus__icon p-menu__menus__icon--profile"></router-link>
 									<!-- <a href="" class="p-menu__menus__icon p-menu__menus__icon--search"></a> -->
 									<router-link :to="{ name: 'Top2' }" class="p-menu__menus__icon p-menu__menus__icon--search"></router-link>								
 									<!-- <a href="" class="p-menu__menus__icon p-menu__menus__icon--foot"></a> -->

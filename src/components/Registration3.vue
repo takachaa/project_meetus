@@ -5,7 +5,7 @@
       <!--contents-->
       <div class="l-main__contents">
         <div class="p-form__registration">
-          <h1 class="p-form__registration__title">求職する目的や希望する条件は？<span>（複数選択可能）</span></h1>
+          <h1 class="p-form__registration__title">求職する目的や希望する条件は？<span>（複数選択可能）</span><span class="p-form__error">未入力です。</span></h1>
           <form action="">
             <div class="p-form__jobsearch__item">
               <div class="p-form__checkbox u-fbox u-fbox--alstart u-fbox--bxstart">

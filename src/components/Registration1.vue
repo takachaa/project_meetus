@@ -8,7 +8,10 @@
           <h1 class="p-form__registration__title">あなたの基本情報を教えてください。</h1>								       						
           <dl>
             <dt class="p-form__registration__stitle">お名前（名字、イニシャル、ハンドルネーム等）</dt>
-            <dd class="p-form__registration__item"><input type="text" name="your-name" placeholder="名字、イニシャル、ハンドルネーム" v-model="objects.name"></dd>
+            <dd class="p-form__registration__item">
+              <input type="text" name="your-name" placeholder="名字、イニシャル、ハンドルネーム" v-model="objects.name">
+              <span class="p-form__error">未入力です。</span>
+            </dd>
             <dt class="p-form__registration__stitle">メールアドレス</dt>
             <dd class="p-form__registration__item"><input type="email" name="your-email" placeholder="○○@○○○○.○○○"  v-model="objects.mail"></dd>
             <dt class="p-form__registration__stitle">パスワード</dt>
@@ -19,6 +22,7 @@
                 <label><input type="radio" name="sex" value="男性" v-model="objects.gender"><span>男性</span></label>
                 <label><input type="radio" name="sex" value="女性" v-model="objects.gender"><span>女性</span></label>
               </div>
+              <span class="p-form__error">未入力です。</span>
             </dd>
             <dt class="p-form__registration__stitle">生まれた年</dt><dd class="p-form__registration__item">
               <select name="year" v-model="objects.yearOfBirth">
@@ -55,6 +59,7 @@
                 <option value="1998">1999年</option>
                 <option value="1999">2000年</option>
               </select>
+              <span class="p-form__error">未入力です。</span>
             </dd>
             <dt class="p-form__registration__stitle">お住いの都道府県</dt><dd class="p-form__registration__item">
               <select name="pref" v-model="objects.address1">

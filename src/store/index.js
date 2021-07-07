@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axiosRefresh from '../axios-refresh'
 import router from '../router'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
@@ -9,7 +10,8 @@ export default new Vuex.Store({
   state: {
     isLodingStatus:false,
     idToken:null,
-    userId:null
+    userId:null,
+    matchesList:[]
   },
   mutations: {
     updateIdToken(state, idToken){
@@ -21,6 +23,16 @@ export default new Vuex.Store({
     changeLodingStatus(state, status){
       state.isLodingStatus = status
     },
+    setMatchesList (state, matches) {
+      state.matchesList = matches
+    },
+    changeMatchesListStatus(state, data){
+      state.matchesList.forEach((element)=>{
+        if(element.roomId == data.roomId && element.toId == data.fromId){
+          element.read_flg = data.read_flg
+        }
+      })
+    }
   },
   actions: {
     async autoLogin({commit, dispatch}){
@@ -28,6 +40,9 @@ export default new Vuex.Store({
       if(!idToken) return;
 
       const now = new Date();
+
+      const userId = localStorage.getItem('userId')//追加分
+
       const expiryTimeMs = localStorage.getItem('expiryTimeMs')
       const isExpired = now.getTime() >= expiryTimeMs;
       const refreshToken = localStorage.getItem('refreshToken')
@@ -42,6 +57,7 @@ export default new Vuex.Store({
           dispatch('refreshIdToken',refreshToken)
         }, expiresInMs )
         commit('updateIdToken',idToken)
+        commit('updateUserId',userId)//追加分
       }
 
     },
@@ -65,10 +81,14 @@ export default new Vuex.Store({
         }, response.data.expires_in * 1000)
 
         commit("updateIdToken", response.data.id_token)
+        commit("updateUserId", response.data.localId)//追加分
 
         const now = new Date();
         const expiryTimeMs = now.getTime() + (response.data.expires_in * 1000)
         localStorage.setItem('idToken', response.data.id_token)
+
+        localStorage.setItem('userId', response.data.localId)//追加分
+        
         localStorage.setItem('expiryTimeMs', expiryTimeMs)
         localStorage.setItem('refreshToken', response.data.refresh_token)
 
@@ -78,6 +98,8 @@ export default new Vuex.Store({
       // alert('logtout from actions')
       commit('updateIdToken',null)
       commit('updateUserId',null)//追加分 ストアに保存されたlocalUserIdをNULL
+      commit('setMatchesList',[])//追加分 ストアに保存されたmatchlistを削除
+      
 
       localStorage.removeItem('idToken')
       localStorage.removeItem('userId')//追加分 localUserIdをローカルストレージから削除
@@ -87,14 +109,44 @@ export default new Vuex.Store({
       router.push({name:'Login'})
     },
     changeLodingStatus({commit}, status){
-      commit('changeLodingStatus', status)
-    },
 
+      commit('changeLodingStatus', status)
+      
+    },
+    setMatchesList({getters, commit}, status) {
+
+      if(status){
+
+        axios.get(`http://${location.hostname}:3000/api/matchlist`,{
+          params: {
+            userId: getters.userId      
+          }
+        })
+        .then((res) => {
+          console.log("axios receive")
+          console.log(res.data)
+          if(res.data){
+            console.log(res.data)
+            commit('setMatchesList', res.data) 
+          }
+
+        })
+        .catch((e) => alert(e))
+
+      }else{
+          commit('setMatchesList', [])
+      }    
+    },
+    changeMatchesListStatus(context, data) {
+      context.commit('changeMatchesListStatus', data)
+    } 
+    
   },
   getters:{
     lodingStatus: state => state.isLodingStatus,
     idToken:state => state.idToken,
-    userId:state => state.userId
+    userId:state => state.userId,
+    matchesList:state => state.matchesList
   },
   modules: {
   }
