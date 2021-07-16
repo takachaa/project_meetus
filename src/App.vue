@@ -15,8 +15,8 @@
           <!-- <a href="" class="p-header__loginbox__icon p-header__loginbox__icon--good"></a>
           <a href="" class="p-header__loginbox__icon p-header__loginbox__icon--star"></a> -->
           <span class="p-header__loginbox__icon p-header__loginbox__icon--notice"><span class="p-header__loginbox__icon__num">{{getNewMessageCount}}</span></span>
-          <router-link v-if="!isAuthenticated" to="/login" class="p-header__loginbox__icon p-header__loginbox__icon--topics"></router-link>
-          <span v-else class="p-header__loginbox__icon p-header__loginbox__icon--topics" @click="logout"></span>
+          <router-link v-if="!isAuthenticated" to="/login" class="p-header__loginbox__icon p-header__loginbox__icon--login"></router-link>
+          <span v-else class="p-header__loginbox__icon p-header__loginbox__icon--logout" @click="logout"></span>
           
         </div>
       </div>
@@ -28,7 +28,7 @@
     </transition>
 
     <!--footer-->
-    <footer v-if="isFooterActive && isAuthenticated">
+    <footer v-if="isAuthenticated && isFooterActive ">
       <div class="p-footer">
         <div class="p-footer__menu u-fbox u-fbox--alcenter">
           <!-- <a href="" class="p-footer__menu__icon p-footer__menu__icon--search"></a> -->
@@ -38,7 +38,7 @@
           <!-- <a href="" class="p-footer__menu__icon p-footer__menu__icon--star"></a> -->
           <router-link to="/favorite" class="p-footer__menu__icon p-footer__menu__icon--star"></router-link>
           <!-- <a href="" class="p-footer__menu__icon p-footer__menu__icon--message"></a> -->
-          <router-link to="/message" class="p-footer__menu__icon p-footer__menu__icon--message"></router-link>
+          <router-link to="/message" class="p-footer__menu__icon p-footer__menu__icon--message"><span class="p-footer__menu__icon__num">{{getNewMessageCount}}</span></router-link>
           <!-- <a href="" class="p-footer__menu__icon p-footer__menu__icon--other"></a> -->
           <router-link to="/menu" class="p-footer__menu__icon p-footer__menu__icon--other"></router-link>
         </div>
@@ -50,6 +50,7 @@
 
 <script>
 import io from 'socket.io-client';  //追加
+// import $ from 'jquery'
 //import axios from 'axios'
 //import { mapActions } from 'vuex'
 
@@ -65,7 +66,8 @@ export default {
   },
   computed:{
     isAuthenticated(){
-      return this.$store.getters.idToken != null
+      // return this.$store.getters.idToken != null
+       return (this.$store.getters.idToken ? true : false) && (this.$store.getters.userId ? true : false)
     },
     getUerId() {
       return this.$store.getters.userId
@@ -83,11 +85,34 @@ export default {
     },
   },
   beforeMount(){
-    console.log('App.vue before mounted')
+    console.log('App.vue beforeMount')
+    // console.log(this.isAuthenticated)
+    // console.log(this.$store.getters.idToken)
+    // console.log(this.$store.getters.userId)
 
     if(this.isAuthenticated){
+      console.log('App.vue beforeMount isAutheticated')
+      
+      this.$store.dispatch('setMatchesList', true)
       this.activateNotificationSocket(true)    
+
+    }else{
+      console.log('App.vue beforeMount Not isAutheticated')
+
+      this.$store.dispatch('setMatchesList', false)
+      if(this.socket){
+        this.socket.disconnect()
+        this.socket = null
+      }
     }
+  },
+  mounted(){
+    /**メニューアクションサンプル**/
+    // $('.p-footer__menu__icon').on('click',function(e){
+    //   e.preventDefault();
+    //   $('.p-footer__menu__icon').removeClass('is-active');
+    //   $(this).addClass('is-active');
+    // });
   },
   destroyed(){
     console.log('App.vue destoryed')   
@@ -107,8 +132,6 @@ export default {
     },
     activateNotificationSocket(status){
       if(status){
-
-        this.$store.dispatch('setMatchesList', true)
 
         this.socket = io(`${location.hostname}:3000/notification`)
 

@@ -100,17 +100,86 @@ export default {
 		fromId : this.$route.params.fromId,
 		toId : this.$route.params.toId,
 		roomId : this.$route.params.roomId,
+		// // fromId : this.$route.query.fromId,
+		// // toId : this.$route.query.toId,
+		// fromId:null,
+		// toId:null,
+		// roomId :null,
 		socket : io(`${location.hostname}:3000/chat`),
 		message:'',
 		messages:[]
 	}
   },
-  mounted(){
+  created() {
 
-	//パラメータがない場合は強制的に前ページに飛ばす
-	if(!this.$route.params.fromId || !this.$route.params.roomId){
+	let roomId = this.roomId ? this.roomId : localStorage.getItem('roomId')
+	let fromId = this.fromId ? this.fromId : localStorage.getItem('fromId')
+	let toId = this.toId ? this.toId : localStorage.getItem('toId')
+
+	window.addEventListener('beforeunload', function() {
+		console.log("beforeunload*****************")
+		// localStorage.setItem('RoomData', {roomId : this.roomId , toId : this.toId, fromId : this.fromId})
+		localStorage.setItem('roomId', roomId) 
+		localStorage.setItem('fromId', fromId) 
+		localStorage.setItem('toId', toId)
+	})
+
+	if(!roomId || !fromId || !toId){
 		this.$router.push('/message')
 	}
+
+  },
+  beforeMount(){
+
+	console.log("message detail before mounted")
+	// console.log(this.$route.query.roomId)
+
+	
+
+	// let matchList = this.$store.getters.matchesList
+	// console.log(matchList)
+
+	// if(!this.$route.query.roomId || matchList == []){
+	// 	this.$router.push('/message')
+	// }
+
+	// matchList.forEach(element => {
+	// 	if(element.roomId == this.$route.query.roomId){
+	// 		this.roomId = element.roomId
+	// 		this.toId = element.toId
+	// 		this.fromId = element.fromId
+	// 	}
+	// });
+  },
+  mounted(){
+	console.log("message detail mounted")
+	console.log(this.fromId)
+	console.log(this.roomId)
+	console.log(this.toId)
+
+	// window.onbeforeunload = function(){
+	// 	alert("onbeforeunload**************")
+	// }
+
+	if(!this.fromId || !this.roomId || !this.toId){
+		// let roomData = localStorage.getItem('RoomData')
+		this.fromId = localStorage.getItem('fromId')
+		this.roomId = localStorage.getItem('roomId')
+		this.toId = localStorage.getItem('toId')
+	}
+	
+    console.log("****************************")
+	console.log(this.fromId)
+	console.log(this.roomId)
+	console.log(this.toId)
+
+	
+    
+	// //パラメータがない場合は強制的に前ページに飛ばす
+	// if(!this.fromId || !this.roomId){
+	// 	this.$router.push('/message')
+	// 	return
+	// }
 
     this.$emit('click', {'isHeaderActive':true,'isFooterActive':false}) 
 
@@ -131,6 +200,12 @@ export default {
 		}
    
         this.$nextTick(()=>{
+			
+			//一番下にスクロール(仮)
+			$(".p-talk--timeline").animate({scrollTop:1000000}, 1000, 'swing', function() {
+				// alert("Finished animating");
+			});
+			
             // var messageBox = document.getElementById('chatbox')
 			// console.log(messageBox)
             // messageBox.scrollTop = messageBox.scrollHeight
@@ -164,12 +239,32 @@ export default {
 		var wh = $(window).innerHeight() - partsh - bh - ch;
 		
 		$('.p-talk--timeline').css({'min-height':wh+'px','max-height':wh+'px'});
+	
 	}
+
+	console.log($('.p-talk--timeline').outerHeight())
+	//一番下にスクロール(仮)
+	$(".p-talk--timeline").animate({scrollTop:1000000  }, 1000, 'swing', function() {
+		// alert("Finished animating");
+	});
+	
+
+  },
+  updated(){
+	console.log('updated')
+
   },
   destroyed(){
-		console.log('destroyed')
-		//websocketのdisconnectを呼び出し
-		this.socket.disconnect()
+	console.log('destroyed')
+	//websocketのdisconnectを呼び出し
+	this.socket.disconnect()
+
+	//メッセージ一覧ページに戻る際にはローカルストレージを削除する
+	localStorage.removeItem('roomId') 
+	localStorage.removeItem('fromId') 
+	localStorage.removeItem('toId')
+
+	
   },
   methods:{
 		setFromIdAndRoomId(){
@@ -200,3 +295,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+/*メッセージ改行表示*/
+.p-talk__comment__message {
+  white-space: pre-wrap;
+}
+
+</style>

@@ -85,6 +85,8 @@ export default {
         this.$store.dispatch("updateIdToken", response.data.idToken)
         this.$store.dispatch("updateUserId", response.data.localId)//追加分 localUserIdをストアに保存
 
+        this.$store.dispatch('setMatchesList', true)//ログイン時にマッチリストを取得
+
         const now = new Date();
         const expiryTimeMs = now.getTime() + (response.data.expiresIn * 1000)
         localStorage.setItem('idToken', response.data.idToken)

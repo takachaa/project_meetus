@@ -117,14 +117,50 @@ export default new Vuex.Store({
 
       if(status){
 
+        // var tmp2 = null
+        // console.log(tmp2)
+        // if( tmp2 == "undefined"){
+        //   console.log("tmp2 true");
+        // }else{
+        //     console.log("tmp2 false");
+        // }
+
+        // var tmp;
+        // console.log(tmp);
+        // if( tmp == "undefined"){
+        //     console.log("tmp true");
+        // }else{
+        //     console.log("tmp false");
+        // }
+
+        // if (typeof tmp === "undefined") {
+        //   console.log('tmp type of true')
+        // }else{
+        //   console.log('tmp type of false')
+        // }
+
+        // console.log('setMathcesList')
+        // console.log(getters.userId)
+        // if( getters.userId == "undefined"){
+        //   console.log("getters.userId true");
+        // }else{
+        //   console.log("getters.userId false");
+        // }
+
+        // if (typeof getters.userId  === "undefined") {
+        //   console.log('getters.userId type of true')
+        // }else{
+        //   console.log('getters.userId  type of false')
+        // }
+
+
         axios.get(`http://${location.hostname}:3000/api/matchlist`,{
           params: {
             userId: getters.userId      
           }
         })
         .then((res) => {
-          console.log("axios receive")
-          console.log(res.data)
+          console.log("axios receive from /api/matchlist")
           if(res.data){
             console.log(res.data)
             commit('setMatchesList', res.data) 
@@ -144,8 +180,20 @@ export default new Vuex.Store({
   },
   getters:{
     lodingStatus: state => state.isLodingStatus,
-    idToken:state => state.idToken,
-    userId:state => state.userId,
+    // idToken:state => state.idToken,
+    idToken: state => {
+      if(state.idToken === 'undefined'){
+        return undefined
+      }
+      return state.idToken;
+    },
+    // userId:state => state.userId,
+    userId: state => {
+      if(state.userId === 'undefined'){
+        return undefined
+      }
+      return state.userId;
+    },
     matchesList:state => state.matchesList
   },
   modules: {

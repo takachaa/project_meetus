@@ -61,10 +61,8 @@ $(function() {
 	});
 	/**talk送信**/
 	$('.p-form__search__submit--talk').on('click',function(){
-		
 		$(this).val('');
-		timeline_height();
-										  
+		timeline_height();			  
 	});
 	
 	/**talk部分の高さ調整**/
@@ -83,6 +81,13 @@ $(function() {
 		
 		$('.p-talk--timeline').css({'min-height':wh+'px','max-height':wh+'px'});
 	}
+	
+	/**メニューアクションサンプル**/
+	$('.p-footer__menu__icon').on('click',function(e){
+		e.preventDefault();
+		$('.p-footer__menu__icon').removeClass('is-active');
+		$(this).addClass('is-active');
+	});
 	
 });
 

@@ -30,6 +30,7 @@
 							
 							<div class="p-talk p-talk--list">
 								<router-link v-for="room in getMatchesList" :key="room.id" :to="{ name: 'MessageDetail', params: { roomId : `${room.roomId}` , fromId : `${room.fromId}` ,toId : `${room.toId}`}}">
+									<!-- <router-link v-for="room in getMatchesList" :key="room.id" :to="{ name: 'MessageDetail', query: { roomId : `${room.roomId}` /*, fromId : `${room.fromId}` ,toId : `${room.toId}`*/}}"> -->
 									<div class="p-talk__user u-fbox u-fbox--alcenter is-active">
 										<div class="p-talk__user__img"><img src="../img/user.jpg" alt=""></div>
 										<dl class="p-talk__user__profile">
